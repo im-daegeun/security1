@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.im.mapper.UserMapper">
+	<insert id="create" useGeneratedKeys="true" keyProperty="id"  parameterType="org.im.model.User">
+		INSERT INTO User
+		 (
+		    USERID 
+		  , USERNAME 
+		  , PASSWORD  
+		  , EMAIL
+		  , ROLE
+		  , CREATEDATE
+		) 
+		VALUES
+		(
+			#{userid}
+		  , #{username}
+		  , #{password} 
+		  , #{email}
+		  , 'USER'
+		  , now() 
+		)
+	</insert>
+
+	<select id="read" resultType="org.im.model.User">
+		SELECT ID
+		  , USERID
+		  , USERNAME 
+		  , PASSWORD  
+		  , EMAIL
+		  , ROLE
+		  , CREATEDATE
+		FROM User
+	 	WHERE USERID = #{userid}
+	</select>
+</mapper>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel=”shortcut icon” href="/assets/img/favicon.ico">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<body>
+<script>
+$(document).ready(function(){
+    $("#btnTest").click(function(){
+
+        var data = {
+            "user_email": "test22@test.com"
+            , "user_name": "이름"
+        }
+        $.post("/saveMember", data, function(res){
+            console.log(res);
+        })
+    })
+
+    $("#btnTestGet").click(function(){
+        $.get("/getTest", function(res){
+            console.log("GET res: ", res);
+        })
+    })
+})
+</script>
+
+<p>
+    <a href="/">홈으로</a>
+</p>
+<br>
+<form action="/saveUser" method="post">
+	<input type="text" name="userid" placeholder="UserId" value="">
+    <input type="text" name="username" placeholder="UserName" value="">
+    <input type="passworkd" name="password" placeholder="Passworkd" value="">
+    <input type="text" name="email" placeholder="Email"  value="">
+    <button type="submit">전송</button>
+</form>
+
+<br><br>
+<button id="btnTest">ajax POST 테스트</button>
+<br><br>
+<button id="btnTestGet">ajax GET 테스트</button>
+<br><br>
+<p>로그인 테스트</p>
+<form action="/loginAction" method="post">
+    <input type="text" name="userid" value="">
+    <input type="password" name="password" value="">
+    <button type="submit">전송</button>
+</form>
+
+<!-- <p>트랜잭션 테스트</p>
+<form action="/transactionTest" method="post">
+    <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">
+    <input type="text" name="user_email" value="testTran@test.com">
+    <input type="text" name="user_name" value="test">
+    <input type="text" name="user_password" value="test1">
+    <button type="submit">전송</button>
+</form>
+ -->
+
+</body>
+</html>
