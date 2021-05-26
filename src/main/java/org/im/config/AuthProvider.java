@@ -1,7 +1,6 @@
 /**
  * git push test===>> push 1
  * sec-branch01 - 01 - first
- * sec-branch01 - 02 - first
  */
 package org.im.config;
 
