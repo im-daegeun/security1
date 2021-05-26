@@ -31,6 +31,9 @@ public class AuthProvider implements AuthenticationProvider{
 	BCryptPasswordEncoder pwEncoder;
 	
 	
+	
+	
+	
 	public Authentication authenticate(Authentication authentication)
 			throws AuthenticationException {
 
